@@ -1,0 +1,130 @@
+*{
+    text-align: center;
+}
+
+h1, h2, h3 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border-bottom: 2px solid lightgray;
+}
+
+h1 {
+    color: white
+}
+
+body {
+    background-color: lightgray;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    background-image: url('fbi.png');
+    background-position: left;
+    background-size: 920px;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position-x: -460px;
+}
+
+#btn {
+    background-color: #c29d23bd; /* Green */
+    border: 2px solid lightgray;
+    border-radius: 30px;
+    color: white;
+    padding: 15px 32px;
+    margin-top: 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#btn:disabled{
+    background-color: rgba(128, 128, 128, 0.507);
+}
+
+.form {
+    padding-top: 40px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#upperbox{
+    background-color: #074772e0;
+    width: 700px;
+    padding-top: 2px;
+    text-align: center;
+    /* border: 2px solid black; */
+    border-radius: 40px;
+}
+
+.textinput {
+    width: 400px;
+    font-size: 16px;
+    font-size: max(16px, 1em);
+    font-family: inherit;
+    padding: 0.25em 0.5em;
+    margin: 0px;
+    background-color: rgba(255, 255, 255, 0.767);
+    border: 2px solid black;
+    border-radius: 8px;
+}
+
+.intx {
+    border-bottom: 2px solid lightgray;
+    font-size: 20px;
+    color: white;
+}
+
+.titlebox {
+    padding-bottom: 15px;
+    border: 2px solid black;
+    border-radius: 60px;
+    color: red;
+    background-color: rgba(255, 217, 0, 0.904);
+}
+
+#msg {
+    border-radius: 20px;
+    color: rgb(255, 196, 0);
+    background-color: rgba(6, 158, 6, 0.671);
+    width: 320px;
+    text-align: center;
+    justify-content: center;
+    padding: 7px;
+    font-size: 16px;
+    margin-left: 185px;
+}
+
+#errmsg {
+    border-radius: 20px;
+    color: rgb(0, 0, 0);
+    background-color: rgba(202, 0, 0, 0.986);
+    width: 400px;
+    text-align: center;
+    font-size: 24px;
+    padding: 5px;
+    margin-left: 145px;
+}
+
+#wrnmsg {
+    border-radius: 5px;
+    color: red;
+    background-color: rgba(255, 217, 0, 0.904);
+    width: 400px;
+    text-align: center;
+    font-size: 20px;
+    padding: 5px;
+    margin-left: 145px;
+    margin-bottom: -40px;
+}
+
+.content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+select {
+    cursor: pointer;
+}

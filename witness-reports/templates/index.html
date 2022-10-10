@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/icon" href="{{ url_for('static', filename='favicon.ico') }}" sizes="16x16">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
+    <title>Witness Reports</title>
+</head>
+<body>
+    <div class="content">
+        <img src="{{ url_for('static', filename='fbi.png')}}" type="image/png" alt="Simply Easy Learning" width="150" height="150" id="imgimg">
+        <div id="upperbox">
+            <h1>Welcome to FBI Wanted Witness Report</h1>
+            {% if not match %}
+            <div id="wrnmsg">Location Warning: Country code of phone number and in your ip adress does not match.</div>
+            {% endif %}
+            <form action="/home" method="post" class="form">
+                <p class="intx">Insert Title From The Title List Bellow: </p>
+                <!-- <input placeholder="Title of report" name="title" class="textinput" type="text"  id="inputTitle"> -->
+                <select name="title" class="textinput" id="inputTitle">
+                {% for witness_report in witness_reports %}
+                    <option>{{witness_report.title}}</option>
+                {% endfor %}
+                </select>
+                <br>
+                <p class="intx">Insert Valid Phone Number(E164 Format): </p>
+                <input placeholder="Number of witness" name="number" class="textinput" type="number" id="inputNumber">
+                <br><br>
+
+                {% if beforeFirstInput %}
+                <div id="msg">{{ "Please enter title and your number." }}</div>
+                {% elif phoneNumberValid and titleValid %}
+                <div id="msg">{{ "Input correct. Thank you for reporting." }}</div>
+                {% elif not phoneNumberValid and titleValid %}
+                <div id="errmsg">{{ "Please enter valid phone number!" }}</div>
+                {% elif phoneNumberValid and not titleValid %}
+                <div id="errmsg">{{ "Please enter valid title!" }}</div>
+                {% else %}
+                <div id="errmsg">{{ "Both title and number are incorrect!" }}</div>
+                {% endif %}
+
+                <input type="submit" value="Submit" id="btn" disabled="disabled">
+                
+                <!-- Used this to clear json for debugging from front screen and testing -->
+                <!-- <a href="/" id="btn">Remove</a> -->
+
+            </form>
+            <br>
+        </div>
+        <script type="text/javascript" src="{{ url_for('static', filename='index.js') }}"></script>
+        <br>
+
+
+        <!-- Preview of titles i used for debugging -->
+        <!-- <div class="titlebox">
+            <h2>List of Titles(FBI Most Wanted Cases)</h2>
+            {% for witness_report in witness_reports %}
+            <div>
+                {% for witness in witness_report %}
+                <div>
+                    {% if witness == 'title' %}
+                    <div>
+                        {{ "Title name is: \"" + witness_report.title + "\"" }}
+                    </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+            {% endfor %}
+        </div> -->
+    </div>
+</body>
